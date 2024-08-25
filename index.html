@@ -14,9 +14,6 @@
         import { GLTFLoader } from 'https://cdn.jsdelivr.net/npm/three@0.153.0/examples/jsm/loaders/GLTFLoader.js';
         import { ARButton } from 'https://cdn.jsdelivr.net/npm/three@0.153.0/examples/jsm/webxr/ARButton.js';
 
-        // Debugging step: log ARButton to verify it's loaded
-        console.log(ARButton);
-
         let camera, scene, renderer;
         let controller, reticle, model;
         let hitTestSource = null;
@@ -36,11 +33,7 @@
             document.body.appendChild(renderer.domElement);
 
             // Ensure ARButton is correctly loaded and used
-            if (ARButton) {
-                document.body.appendChild(ARButton.createButton(renderer, { requiredFeatures: ['hit-test'] }));
-            } else {
-                console.error('ARButton is not available.');
-            }
+            document.body.appendChild(ARButton.createButton(renderer, { requiredFeatures: ['hit-test'] }));
 
             // Licht
             const light = new THREE.HemisphereLight(0xffffff, 0xbbbbff, 1);
